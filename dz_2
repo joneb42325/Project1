@@ -1,0 +1,56 @@
+#include <iostream>
+#include <windows.h>
+#define M_PI 3.14159265358979323846
+using namespace std;
+int main()
+{
+        SetConsoleOutputCP(1251);
+        bool f = true;
+        int n, a ;
+        double radius, diameter, circumference, area;
+        do
+        {
+            cout << "Оберіть елемент круга:" << endl;
+            cout << "1. Радіус" << endl;
+            cout << "2. Діаметр" << endl;
+            cout << "3. Довжина кола" << endl;
+            cout << "Введіть номер елемента: ";
+            cin >> n;
+            cout << "n=" << n << endl;
+            switch (n)
+            {
+            case 1:  cout << "Введіть радіус круга: ";
+                cin >> radius;
+                diameter = 2 * radius;
+                circumference = 2 * M_PI * radius;
+                area = M_PI * radius * radius;
+                break;
+            case 2:  cout << "Введіть діаметр круга" << endl;
+                cin >> diameter;
+                radius = diameter / 2;
+                circumference = 2 * M_PI * radius;
+                area = M_PI * radius * radius;
+                break;
+            case 3: cout << "Введіть довжину кола";
+                cin >> circumference;
+                radius = circumference / (2 * M_PI);
+                diameter = 2 * radius;
+                area = M_PI * radius * radius;
+                break;
+            default: cout << "Невірний вибір елемента" << endl;
+                f=false;
+
+            }
+            if (f) {
+
+
+                cout << "Радіус: " << radius << endl;
+                cout << "Діаметр: " << diameter << endl;
+                cout << "Довжина кола: " << circumference << endl;
+                cout << "Площа круга: " << area << endl;
+            }
+            cout << "Бажаєте повторити?(1-так, інше - ні";
+            cin >> a;
+        } while (a == 1);
+
+}
